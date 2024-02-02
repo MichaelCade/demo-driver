@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.title}}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: var(--background-color, #fff);
+            color: var(--text-color, #333);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .lab-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .lab-box {
+            width: 200px;
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .lab-logo {
+            max-width: 100%;
+            max-height: 80px;
+        }
+        .destroy-button {
+            margin-top: 10px;
+            padding: 8px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        /* Dark Mode Styles */
+        body.dark-mode {
+            --background-color: #333;
+            --text-color: #fff;
+            --border-color: #555;
+            --box-background-color: #444;
+            --box-text-color: #fff;
+            --destroy-button-color: #d9534f;
+        }
+
+        .dark-mode-toggle {
+            display: block;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: var(--dark-mode-toggle-bg, #007bff);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: var(--dark-mode-toggle-bg-hover, #0056b3);
+        }
+    </style>
+</head>
+<body>
+    <h1>{{.title}}</h1>
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Lights Out!</button>
+    <div class="lab-container">
+        <div class="lab-box">
+            <img class="lab-logo" src="/static/aws_logo.png" alt="AWS Logo">
+            <p>AWS Lab</p>
+            <button class="destroy-button" onclick="destroyLab('AWS')">Destroy</button>
+        </div>
+        <div class="lab-box">
+            <img class="lab-logo" src="/static/azure_logo.png" alt="Azure Logo">
+            <p>Azure Lab</p>
+            <button class="destroy-button" onclick="destroyLab('Azure')">Destroy</button>
+        </div>
+        <div class="lab-box">
+            <img class="lab-logo" src="/static/gcp_logo.png" alt="Google Cloud Logo">
+            <p>Google Cloud Lab</p>
+            <button class="destroy-button" onclick="destroyLab('GCP')">Destroy</button>
+        </div>
+        <div class="lab-box">
+            <img class="lab-logo" src="/static/vsphere_logo.png" alt="vSphere Logo">
+            <p>vSphere Lab</p>
+            <button class="destroy-button" onclick="destroyLab('vSphere')">Destroy</button>
+        </div>
+        <div class="lab-box">
+            <img class="lab-logo" src="/static/kubernetes_logo.png" alt="Kubernetes Logo">
+            <p>Kubernetes Lab</p>
+            <button class="destroy-button" onclick="destroyLab('Kubernetes')">Destroy</button>
+        </div>
+    </div>
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
